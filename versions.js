@@ -21,7 +21,9 @@ function resolveCommit (platform, version) {
   const downloadUrl = `https://ziglang.org/builds/zig-${addrhost}-${version}.${ext}`
   const variantName = `zig-${addrhost}-${version}`
 
-  return { downloadUrl, variantName, version }
+  const versionWithoutBuildHash = semver.clean(version)
+
+  return { downloadUrl, variantName, version: versionWithoutBuildHash }
 }
 
 function getJSON (opts) {

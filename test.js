@@ -1,4 +1,5 @@
 const assert = require('assert').strict
+const semver = require('semver')
 const {
   resolveCommit,
   resolveVersion
@@ -15,6 +16,12 @@ async function test () {
     variantName: 'zig-windows-x86_64-0.6.0+4b48fccad',
     version: '0.6.0+4b48fccad'
   })
+
+  // NOTE: build metadata is stripped out
+  assert.deepEqual(
+    '0.12.0-dev.1092',
+    semver.clean('0.12.0-dev.1092+68ed78775')
+  )
 
   assert.deepEqual(resolveCommit('win32', '0.12.0-dev.1092+68ed78775'), {
     downloadUrl: 'https://ziglang.org/builds/zig-windows-x86_64-0.12.0-dev.1092+68ed78775.zip',
