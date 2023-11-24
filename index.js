@@ -17,9 +17,20 @@ const TOOL_NAME = 'zig'
 async function downloadZig (platform, version, useCache = true) {
   const ext = extForPlatform(platform)
 
+  actions.info(`downloadZig: version ${version}`)
+
   const { downloadUrl, variantName, version: useVersion } = version.includes('+')
     ? resolveCommit(platform, version)
     : await resolveVersion(platform, version)
+
+  actions.info(`
+    downloadZig---
+    version: ${version}
+    platform: ${platform}
+    downloadUrl: ${downloadUrl}
+    variantName: ${variantName}
+    useVersion: ${useVersion}
+  `)
 
   const cachedPath = toolCache.find(TOOL_NAME, useVersion)
   if (cachedPath) {
