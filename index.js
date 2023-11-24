@@ -47,6 +47,12 @@ async function downloadZig (platform, version, useCache = true) {
   const binPath = path.join(zigPath, variantName)
   const cachePath = await toolCache.cacheDir(binPath, TOOL_NAME, useVersion)
 
+  actions.info(`
+    useVersion: ${useVersion}
+    binPath: ${binPath}
+    cachePath: ${binPath}
+  `)
+
   if (useCache) {
     actions.info(`adding zig ${useVersion} at ${cachePath} to local cache ${cacheKey}`)
     await cache.saveCache([cachePath], cacheKey)
