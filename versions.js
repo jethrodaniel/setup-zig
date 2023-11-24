@@ -12,6 +12,10 @@ function extForPlatform (platform) {
 
 function resolveCommit (platform, version) {
   const ext = extForPlatform(platform)
+  console.log(`
+    platform: ${platform}
+    version: ${version}
+  `)
   const addrhost = {
     linux: 'linux-x86_64',
     darwin: 'macos-x86_64',
@@ -19,9 +23,14 @@ function resolveCommit (platform, version) {
   }[platform]
 
   const downloadUrl = `https://ziglang.org/builds/zig-${addrhost}-${version}.${ext}`
-  const variantName = `zig-${addrhost}-${version}`
 
   const versionWithoutBuildHash = semver.clean(version)
+  const variantName = `zig-${addrhost}-${versionWithoutBuildHash}`
+
+  console.log(`
+    variantName: ${variantName}
+    versionWithoutBuildHash: ${versionWithoutBuildHash}
+  `)
 
   return { downloadUrl, variantName, version: versionWithoutBuildHash }
 }

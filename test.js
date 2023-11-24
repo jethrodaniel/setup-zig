@@ -9,12 +9,12 @@ async function test () {
   assert.deepEqual(resolveCommit('linux', '0.6.0+4b48fccad'), {
     downloadUrl: 'https://ziglang.org/builds/zig-linux-x86_64-0.6.0+4b48fccad.tar.xz',
     variantName: 'zig-linux-x86_64-0.6.0+4b48fccad',
-    version: '0.6.0+4b48fccad'
+    version: '0.6.0'
   })
   assert.deepEqual(resolveCommit('win32', '0.6.0+4b48fccad'), {
     downloadUrl: 'https://ziglang.org/builds/zig-windows-x86_64-0.6.0+4b48fccad.zip',
     variantName: 'zig-windows-x86_64-0.6.0+4b48fccad',
-    version: '0.6.0+4b48fccad'
+    version: '0.6.0'
   })
 
   // NOTE: build metadata is stripped out
@@ -26,7 +26,7 @@ async function test () {
   assert.deepEqual(resolveCommit('win32', '0.12.0-dev.1092+68ed78775'), {
     downloadUrl: 'https://ziglang.org/builds/zig-windows-x86_64-0.12.0-dev.1092+68ed78775.zip',
     variantName: 'zig-windows-x86_64-0.12.0-dev.1092+68ed78775',
-    version: '0.12.0-dev.1092+68ed78775'
+    version: '0.12.0-dev.1092'
   })
 
   assert.deepEqual(await resolveVersion('linux', '0.7.0'), {
