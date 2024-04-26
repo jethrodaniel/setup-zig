@@ -1,7 +1,7 @@
 {
   "name": "setup-zig",
   "description": "Use the zig compiler in your Github Action",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "author": "Renée Kooi <renee@kooi.me>",
   "bugs": {
     "url": "https://github.com/goto-bus-stop/setup-zig/issues"
@@ -14,7 +14,7 @@
     "simple-get": "^4.0.0"
   },
   "devDependencies": {
-    "esbuild": "^0.19.0",
+    "esbuild": "^0.20.0",
     "standard": "^17.0.0"
   },
   "homepage": "https://github.com/goto-bus-stop/setup-zig",
@@ -31,7 +31,7 @@
     "url": "https://github.com/goto-bus-stop/setup-zig.git"
   },
   "scripts": {
-    "prepare": "esbuild index.js --outdir=dist --keep-names --bundle --platform=node --target=node16",
+    "prepare": "esbuild index.js --outdir=dist --keep-names --bundle --platform=node --target=node20",
     "test": "standard && node test"
   },
   "standard": {
